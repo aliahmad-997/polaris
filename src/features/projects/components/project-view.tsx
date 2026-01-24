@@ -32,19 +32,22 @@ export const ProjectView = () => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.metaKey || event.ctrlKey) {
-        if (event.key === 'k') {
+        if (event.key === "k") {
           event.preventDefault();
           setCommandDialogOpen(true);
         }
       }
-    }
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
     <>
-      <ProjectsCommandDialog open={commandDialogOpen} onOpenChange={setCommandDialogOpen} />
+      <ProjectsCommandDialog
+        open={commandDialogOpen}
+        onOpenChange={setCommandDialogOpen}
+      />
       <div
         className="min-h-screen bg-sidebar flex flex-col items-center 
     justify-center p-6 md:p-16"
@@ -60,7 +63,7 @@ export const ProjectView = () => {
               <h1
                 className={cn(
                   "text-4xl md:text:5xl font-semibold",
-                  font.className
+                  font.className,
                 )}
               >
                 Polaris
@@ -96,9 +99,9 @@ export const ProjectView = () => {
 
               <Button
                 variant="outline"
-                onClick={() => { }}
+                onClick={() => {}}
                 className="h-full items-start justify-start p-4 bg-background 
-              border flex flex-col gap-6 rounded-none"
+                                  border flex flex-col gap-6 rounded-none"
               >
                 <div className="flex items-center justify-between w-full">
                   <FaGithub className="size-4" />
@@ -110,7 +113,11 @@ export const ProjectView = () => {
               </Button>
             </div>
 
-            <ProjectsList onViewAll={() => { setCommandDialogOpen(true) }} />
+            <ProjectsList
+              onViewAll={() => {
+                setCommandDialogOpen(true);
+              }}
+            />
           </div>
         </div>
       </div>
